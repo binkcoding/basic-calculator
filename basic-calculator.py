@@ -23,3 +23,4 @@ if isinstance(result, float) and result.is_integer():
     print(f"{int(result)}") #If the result is an integer
 else:
     print(f"{result:.2f}") #If result is float
+#Testing just pushing on the main file changes

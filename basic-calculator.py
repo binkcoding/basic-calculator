@@ -1,26 +1,38 @@
+#Aliases
+operation_aliases = {
+    "plus": "add",
+    "addition": "add",
+    "sum": "add",
+    "minus": "subtract",
+    "subtraction": "subtract",
+    "subtract": "subtract",
+    "multiply": "multiply",
+    "times": "multiply",
+    "divide": "divide",
+    "division": "divide",
+}
+
+#Expressions for operations aliases dictionary
+
+operations = {
+    "multiply": lambda first_number, second_number: first_number * second_number,
+    "add": lambda first_number, second_number: first_number + second_number,
+    "subtract": lambda first_number, second_number: first_number - second_number,
+    "divide": lambda first_number, second_number: first_number / second_number if second_number != 0 else "Cannot divide by zero",
+}
+#Input
 equation = input("What's the type of equation you'd like to do? ").lower()
 firstnumber = float(input("What's the first number? "))
 secondnumber = float(input("What's the second number? "))
 
-operations = {
-    "multiply": firstnumber * secondnumber,
-    "add": firstnumber + secondnumber,
-    "subtract": firstnumber - secondnumber,
-    "divide": firstnumber / secondnumber if secondnumber != 0 else "Cannot divide by zero",
-}
+if equation in operation_aliases:
+    equation = operation_aliases[equation]
 
-#Ensure works for variation of words
-
-if equation =="plus":
-    equation = "add"
-elif equation == "minus":
-    equation = "subtract"
 #Making the result presented a whole number if it is
 if equation in operations:
-    result = operations[equation]
-#testing
+    result = operations[equation](firstnumber, secondnumber) #Calling lambda
+
 if isinstance(result, float) and result.is_integer():
     print(f"{int(result)}") #If the result is an integer
 else:
     print(f"{result:.2f}") #If result is float
-#Testing just pushing on the main file changes

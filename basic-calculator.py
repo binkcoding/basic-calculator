@@ -25,8 +25,12 @@ while True:
     equation = input("What's the type of equation you'd like to do? Or type 'exit' to quit. ").lower()
     if equation == "exit":
         break
-    firstnumber = float(input("What's the first number? "))
-    secondnumber = float(input("What's the second number? "))
+    try:
+        firstnumber = float(input("What's the first number? "))
+        secondnumber = float(input("What's the second number? "))
+    except ValueError:
+        print("Please enter valid numbers.")
+        exit()
 
     if equation in operation_aliases:
         equation = operation_aliases[equation]

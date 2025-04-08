@@ -15,7 +15,7 @@ if equation =="plus":
     equation = "add"
 elif equation == "minus":
     equation = "subtract"
-
+#testing
 #Making the result presented a whole number if it is
 if equation in operations:
     result = operations[equation]

@@ -18,7 +18,7 @@ elif equation == "minus":
 #Making the result presented a whole number if it is
 if equation in operations:
     result = operations[equation]
-
+#testing
 if isinstance(result, float) and result.is_integer():
     print(f"{int(result)}") #If the result is an integer
 else:
